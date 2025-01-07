@@ -1,10 +1,12 @@
-import estoque from './estoque.js';
+import { estoque, caixa } from './estoque.js';
 import express from 'express';
 
 const app = express();
 
-app.get('/produtos', (req, res) => {
-    res.status(200).send(estoque);
+app.get('/estoque', (req, res) => {
+    res.status(200).json({ estoque, caixa });
 });
 
-app.listen(3000);
+app.listen(3000,() => {
+    console.log('Servidor rodando na porta 3000');
+});
